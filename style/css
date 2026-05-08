@@ -1,224 +1,89 @@
 /* SYNAPSE NEURAL INTERFACE - MASTER STYLESHEET
-   Project: Aspirational Portfolio 2026
-   Author: Sandra Elzatom
-   Palette: Cyan, Purple, Emerald, Rose, Amber
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
 :root {
-    --cyan: #22d3ee;
-    --purple: #a855f7;
-    --emerald: #10b981;
-    --rose: #f43f5e;
-    --amber: #fbbf24;
-    --bg-dark: #030303;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --cyan: #22d3ee; --purple: #a855f7; --emerald: #10b981; 
+    --rose: #f43f5e; --amber: #fbbf24; --bg: #030303;
 }
 
-/* 1. GLOBAL CORE */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { background: var(--bg); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
 
-body {
-    background-color: var(--bg-dark);
-    color: #fafafa;
-    font-family: 'Space Grotesk', sans-serif;
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-/* 2. BACKGROUND & STUNNING SIGNALS */
-.galaxy-container {
-    position: fixed;
-    inset: 0;
-    z-index: -10;
+/* COSMIC BACKGROUND SYSTEM */
+.galaxy-bg {
+    position: fixed; inset: 0; z-index: -10;
     background: radial-gradient(circle at center, #0a1122 0%, #000 100%);
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
 }
 
-.neural-signal {
-    position: absolute;
-    height: 2px;
-    width: 350px;
-    filter: blur(3px);
-    opacity: 0;
-    animation: travel 8s linear infinite;
-    pointer-events: none;
+.nebula {
+    position: fixed; inset: 0; z-index: -9;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(34, 211, 238, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
+    filter: blur(60px);
 }
 
-/* Signal Color & Speed Variants */
-.sig-cyan { 
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent); 
-    top: 15%; animation-duration: 6s; 
-}
-.sig-purple { 
-    background: linear-gradient(90deg, transparent, var(--purple), transparent); 
-    top: 40%; animation-duration: 10s; animation-delay: 2s; 
-}
-.sig-emerald { 
-    background: linear-gradient(90deg, transparent, var(--emerald), transparent); 
-    top: 65%; animation-duration: 7s; animation-delay: 4s; 
-}
-.sig-rose { 
-    background: linear-gradient(90deg, transparent, var(--rose), transparent); 
-    top: 85%; animation-duration: 9s; animation-delay: 1s; 
+.stars {
+    position: fixed; inset: 0; z-index: -8;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
 }
 
-@keyframes travel {
-    0% { left: -400px; opacity: 0; transform: scaleX(0.5); }
-    30% { opacity: 0.7; }
-    70% { opacity: 0.7; }
-    100% { left: 100vw; opacity: 0; transform: scaleX(1.5); }
+/* METEOR ANIMATION */
+.meteors { position: fixed; width: 100%; height: 100vh; z-index: -7; overflow: hidden; }
+.meteors span {
+    position: absolute; top: 50%; left: 50%; width: 2px; height: 2px;
+    background: #fff; border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,0.1), 0 0 0 8px rgba(255,255,255,0.1), 0 0 20px rgba(255,255,255,1);
+    animation: meteor 5s linear infinite;
+}
+.meteors span::before {
+    content: ''; position: absolute; top: 50%; transform: translateY(-50%); width: 300px; height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+@keyframes meteor {
+    0% { transform: rotate(315deg) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: rotate(315deg) translateX(-1000px); opacity: 0; }
 }
 
-/* 3. DASHBOARD NAVIGATION */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(25px);
-    border-bottom: 1px solid var(--glass-border);
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* NAVIGATION */
+.glass-nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(0,0,0,0.4); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 1rem 4rem; display: flex; justify-content: space-between; align-items: center;
 }
-
-.nav-container {
-    display: flex;
-    gap: 0.75rem;
-}
-
 .nav-btn {
-    text-decoration: none;
-    padding: 0.6rem 1.1rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #94a3b8;
-    border: 1px solid transparent;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.02);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-decoration: none; color: #94a3b8; font-size: 0.75rem; 
+    padding: 0.6rem 1.2rem; border-radius: 50px; transition: 0.4s;
+    text-transform: uppercase; letter-spacing: 0.1em;
+}
+.nav-btn:hover { color: var(--cyan); background: rgba(34,211,238,0.1); }
+
+/* SECTIONS */
+section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
+.hero-title { font-size: clamp(3rem, 10vw, 9rem); font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; }
+.gradient-text { background: linear-gradient(90deg, #fff, var(--cyan), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* NEURAL SIGNALS (FROM YOUR VIDEO) */
+.neural-signal { position: absolute; height: 2px; width: 300px; filter: blur(3px); opacity: 0; animation: travel 8s linear infinite; }
+.sig-cyan { background: linear-gradient(90deg, transparent, var(--cyan), transparent); top: 20%; animation-duration: 6s; }
+.sig-purple { background: linear-gradient(90deg, transparent, var(--purple), transparent); top: 50%; animation-duration: 10s; }
+@keyframes travel {
+    0% { left: -400px; opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { left: 100vw; opacity: 0; }
 }
 
-.nav-btn:hover {
-    color: var(--cyan);
-    border-color: var(--cyan);
-    background: rgba(34, 211, 238, 0.08);
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
-    transform: translateY(-2px);
-}
+/* CARDS */
+.glass-card { background: rgba(255,255,255,0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; padding: 3rem; }
+.workflow-card { padding: 2rem; border-radius: 20px; border-left: 4px solid; background: rgba(255,255,255,0.01); }
+.cyan { border-color: var(--cyan); }
+.purple { border-color: var(--purple); }
+.amber { border-color: var(--amber); }
 
-/* 4. SECTION FLOW & GLOWS */
-section {
-    min-height: 100vh;
-    padding: 140px 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
+.stack-tag { padding: 0.5rem; background: rgba(255,255,255,0.05); border-radius: 10px; text-align: center; font-weight: bold; border: 1px solid rgba(255,255,255,0.1); }
 
-/* Dynamic Section Background Glows */
-section:nth-child(even) {
-    background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.04), transparent 50%);
-}
-
-section:nth-child(odd) {
-    background: radial-gradient(circle at bottom left, rgba(34, 211, 238, 0.04), transparent 50%);
-}
-
-/* 5. COMPONENTS (GLASS-MORPHISM) */
-.glass-card {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 32px;
-    padding: 3.5rem;
-    margin-bottom: 2rem;
-    transition: all 0.5s ease;
-}
-
-.glass-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(34, 211, 238, 0.4);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* 6. TYPOGRAPHY & ACCENTS */
-.gradient-text {
-    background: linear-gradient(90deg, #ffffff, var(--cyan), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-}
-
-.section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-}
-
-/* 7. STATUS INDICATORS & EXTRAS */
-.status-indicator {
-    width: 10px;
-    height: 10px;
-    background: var(--emerald);
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 10px;
-    box-shadow: 0 0 12px var(--emerald);
-    animation: signal-pulse 2s infinite;
-}
-
-@keyframes signal-pulse {
-    0% { opacity: 0.4; transform: scale(0.9); }
-    50% { opacity: 1; transform: scale(1.1); }
-    100% { opacity: 0.4; transform: scale(0.9); }
-}
-
-/* Roadmap Connector Line */
-#roadmap .border-l {
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-/* 8. FOOTER */
-footer {
-    text-align: center;
-    padding: 6rem 2rem;
-    border-top: 1px solid var(--glass-border);
-    color: #475569;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-    nav { padding: 1rem; }
-    .nav-btn { padding: 0.5rem 0.8rem; font-size: 0.6rem; }
-    section { padding: 100px 5%; }
-}
-
-@media (max-width: 768px) {
-    .nav-container { display: none; } /* Mobile simplicity */
-    h1 { font-size: 4rem !important; }
-}
+/* FOOTER */
+.footer { padding: 4rem; text-align: center; font-size: 0.6rem; letter-spacing: 0.5em; opacity: 0.3; }
