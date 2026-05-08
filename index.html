@@ -3,95 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandra | Neural Architect Portfolio</title>
+    <title>SYNAPSE | Sandra Elzatom Neural Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #22d3ee;
+            --purple: #a855f7;
+            --emerald: #10b981;
+            --rose: #f43f5e;
+            --amber: #fbbf24;
+        }
+
+        * { scroll-behavior: smooth; }
+        body {
+            background-color: #030303;
+            color: #fafafa;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Full Galaxy Background */
+        .galaxy-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            background: radial-gradient(circle at center, #0a0f1d 0%, #000 100%);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+        }
+
+        /* Animated Multicolour Signals */
+        .neural-signal {
+            position: absolute;
+            height: 2px;
+            width: 300px;
+            filter: blur(2px);
+            animation: travel 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        .sig-cyan { background: linear-gradient(90deg, transparent, var(--cyan), transparent); top: 15%; animation-duration: 6s; }
+        .sig-purple { background: linear-gradient(90deg, transparent, var(--purple), transparent); top: 40%; animation-duration: 10s; animation-delay: 2s; }
+        .sig-emerald { background: linear-gradient(90deg, transparent, var(--emerald), transparent); top: 65%; animation-duration: 7s; animation-delay: 4s; }
+        .sig-rose { background: linear-gradient(90deg, transparent, var(--rose), transparent); top: 85%; animation-duration: 9s; animation-delay: 1s; }
+
+        @keyframes travel {
+            0% { left: -300px; opacity: 0; transform: scaleX(0.5); }
+            50% { opacity: 1; transform: scaleX(1.2); }
+            100% { left: 100vw; opacity: 0; transform: scaleX(0.5); }
+        }
+
+        /* Claude-Style Buttons */
+        .nav-link {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 99px;
+            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
+            color: #94a3b8;
+        }
+
+        .nav-link:hover {
+            color: var(--cyan);
+            background: rgba(34, 211, 238, 0.1);
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(34, 211, 238, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #fff, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="fixed inset-0 z-[-10] bg-[#030303]">
-        <div class="signal signal-cyan" style="top: 15%; animation-delay: 0s;"></div>
-        <div class="signal signal-purple" style="top: 40%; animation-delay: 3s;"></div>
-        <div class="signal signal-emerald" style="top: 70%; animation-delay: 1.5s;"></div>
-    </div>
+    <div class="galaxy-overlay"></div>
+    <div class="neural-signal sig-cyan"></div>
+    <div class="neural-signal sig-purple"></div>
+    <div class="neural-signal sig-emerald"></div>
+    <div class="neural-signal sig-rose"></div>
 
-    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
-        <div class="font-bold tracking-tighter text-xl">NEURAL_ARC <span class="text-cyan-400">v2.0</span></div>
-        <div class="hidden lg:flex space-x-4 uppercase font-medium">
-            <a href="#vision" class="nav-btn">Vision</a>
-            <a href="#research" class="nav-btn">Research</a>
-            <a href="#workflow" class="nav-btn">AI Workflow</a>
-            <a href="#information" class="nav-btn">Information</a>
-            <a href="#nodes" class="nav-btn">Nodes</a>
-            <a href="#concepts" class="nav-btn">Concepts</a>
+    <nav class="fixed top-0 w-full z-50 p-6 flex flex-wrap justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
+        <div class="font-bold tracking-tighter text-2xl text-white">SYNAPSE<span class="text-cyan-400">.</span></div>
+        <div class="flex space-x-2 overflow-x-auto">
+            <a href="#vision" class="nav-link">Vision</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#workflow" class="nav-link">AI Workflow</a>
+            <a href="#information" class="nav-link">Information</a>
+            <a href="#nodes" class="nav-link">Nodes</a>
+            <a href="#concepts" class="nav-link">Concepts</a>
         </div>
     </nav>
 
-    <main class="pt-32">
+    <main class="relative z-10">
+        
         <section id="vision" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-            <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-6 bg-gradient-to-r from-white via-cyan-400 to-purple-500 bg-clip-text text-transparent">SYNAPSE</h1>
-            <p class="text-gray-400 text-xl tracking-[0.3em] uppercase">The Future of Neural Interface Design</p>
+            <div class="absolute w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse"></div>
+            <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-6 gradient-text">NEURAL<br>ARCHITECT</h1>
+            <p class="text-gray-500 text-lg tracking-[0.5em] uppercase">Sandra Elzatom // Class of 2026</p>
+            <div class="mt-20 animate-bounce text-cyan-400/50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
         </section>
 
-        <section id="research" class="min-h-screen py-24 px-8">
-            <div class="max-w-6xl mx-auto glass-card p-12">
-                <h2 class="text-4xl font-bold mb-8 text-emerald-400 italic">// Global Market Research</h2>
+        <section id="research" class="min-h-screen py-32 px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-bold mb-16 text-emerald-400 tracking-tight italic">// Market Research</h2>
                 <div class="grid md:grid-cols-2 gap-12">
-                    <p class="text-gray-300 leading-relaxed">My research involved analyzing the patent landscape for BCI (Brain-Computer Interface) hardware. I synthesized data from 2024-2025 trends showing a 400% increase in demand for "Applied AI Translators"—professionals who can turn raw neural signals into actionable UI.</p>
-                    <div class="border-l border-emerald-500/30 pl-8 space-y-4">
-                        <div class="text-xs text-emerald-500 font-mono">TARGET_COMPANIES</div>
-                        <ul class="text-sm space-y-2 text-gray-500">
-                            <li>> Neuralink (Neural Data Engineering)</li>
-                            <li>> Synchron (Stentrode UI Development)</li>
-                            <li>> Kernel (Neuro-Imaging AI)</li>
-                        </ul>
+                    <div class="glass-card p-10">
+                        <h3 class="text-2xl font-bold mb-4">The BCI Frontier</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Through deep analysis of 2024-2026 Brain-Computer Interface (BCI) trends, I identified a critical gap: **Neuro-Design Integration**. Companies like Neuralink and Synchron have the hardware, but they lack the interface systems that make neural data human-readable.
+                        </p>
+                        <div class="mt-8 pt-8 border-t border-white/10">
+                            <span class="text-xs text-emerald-500 font-mono">PRIMARY RESEARCH SOURCES</span>
+                            <p class="text-sm text-gray-500 mt-2">IEEE Xplore, MIT Media Lab Research, Gartner Emerging Tech Hype Cycle 2025.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-10 flex flex-col justify-center bg-emerald-500/5">
+                        <h3 class="text-xl font-bold mb-6 text-white text-center">Projected Industry Growth</h3>
+                        <div class="space-y-6">
+                            <div class="h-2 w-full bg-gray-800 rounded-full"><div class="h-full bg-emerald-500 w-full rounded-full"></div></div>
+                            <div class="h-2 w-full bg-gray-800 rounded-full"><div class="h-full bg-cyan-500 w-3/4 rounded-full"></div></div>
+                            <div class="h-2 w-full bg-gray-800 rounded-full"><div class="h-full bg-purple-500 w-1/2 rounded-full"></div></div>
+                        </div>
+                        <p class="mt-8 text-xs text-center text-gray-500">Neural Data Engineering is expected to grow 40% annually by 2027.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="workflow" class="min-h-screen py-24 px-8 bg-white/5">
-            <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-5xl font-bold mb-16">AI Orchestration Workflow</h2>
+        <section id="workflow" class="min-h-screen py-32 px-8 bg-white/[0.02]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-center text-5xl font-bold mb-20 tracking-tighter">AI Orchestration Workflow</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="glass-card p-10 hover:scale-105 transition">
-                        <div class="text-cyan-400 text-4xl font-bold mb-4">01</div>
-                        <h3 class="text-white font-bold mb-2">Claude 3.5 Sonnet</h3>
-                        <p class="text-sm text-gray-400">Used as the Lead Frontend Architect to generate the complex "Data Signal" logic seen on this page.</p>
+                    <div class="glass-card p-10 group border-cyan-500/20">
+                        <div class="text-4xl font-bold text-cyan-400 mb-4 opacity-50 group-hover:opacity-100 transition">01</div>
+                        <h4 class="text-xl font-bold mb-4">Claude 3.5 Sonnet</h4>
+                        <p class="text-gray-400 text-sm">Deployed as the **Lead Frontend Architect**. Claude was responsible for the modular Tailwind components and the specific CSS 'Neural Signal' animation logic.</p>
                     </div>
-                    <div class="glass-card p-10 hover:scale-105 transition border-purple-500/30">
-                        <div class="text-purple-400 text-4xl font-bold mb-4">02</div>
-                        <h3 class="text-white font-bold mb-2">Gemini 1.5 Pro</h3>
-                        <p class="text-sm text-gray-400">Acted as the Research Analyst, parsing academic papers on EEG signal processing to ground the portfolio in reality.</p>
+                    <div class="glass-card p-10 group border-purple-500/20">
+                        <div class="text-4xl font-bold text-purple-400 mb-4 opacity-50 group-hover:opacity-100 transition">02</div>
+                        <h4 class="text-xl font-bold mb-4">Gemini 1.5 Pro</h4>
+                        <p class="text-gray-400 text-sm">Utilized as the **Strategic Research Lead**. Gemini parsed over 100+ pages of academic literature to ground the "Nodes" project in realistic science.</p>
                     </div>
-                    <div class="glass-card p-10 hover:scale-105 transition border-emerald-500/30">
-                        <div class="text-emerald-400 text-4xl font-bold mb-4">03</div>
-                        <h3 class="text-white font-bold mb-2">Midjourney v6</h3>
-                        <p class="text-sm text-gray-400">Synthesized the visual mood boards and "Cyber-Space" aesthetic used for the site’s background textures.</p>
+                    <div class="glass-card p-10 group border-amber-500/20">
+                        <div class="text-4xl font-bold text-amber-400 mb-4 opacity-50 group-hover:opacity-100 transition">03</div>
+                        <h4 class="text-xl font-bold mb-4">Midjourney v6</h4>
+                        <p class="text-gray-400 text-sm">Managed as the **Visual Asset Director**. Responsible for synthesizing the aesthetic identity of 'Synapse'—blending bioluminescence with silicon textures.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="information" class="min-h-screen py-24 px-8">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center text-rose-400">System Information</h2>
-                <div class="space-y-6">
-                    <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-gray-500">Project Architect</span>
-                        <span class="text-white">Sandra [Your Last Name]</span>
+        <section id="information" class="min-h-screen py-32 px-8 flex items-center">
+            <div class="max-w-4xl mx-auto w-full glass-card p-16 border-rose-500/20">
+                <h2 class="text-5xl font-bold mb-12 text-rose-500 italic uppercase">Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+                    <div class="space-y-6">
+                        <div class="border-b border-white/10 pb-4">
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Professional Identity</span>
+                            <p class="mt-1 font-bold">Neural Interface Designer</p>
+                        </div>
+                        <div class="border-b border-white/10 pb-4">
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Target Audience</span>
+                            <p class="mt-1 font-bold">R&D Labs / Bio-Tech Startups</p>
+                        </div>
                     </div>
-                    <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-gray-500">Framework</span>
-                        <span class="text-white italic">Museum of Echoes v2.0 (Customized)</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/10 pb-4">
-                        <span class="text-gray-500">Presentation Date</span>
-                        <span class="text-white">May 8, 2026</span>
+                    <div class="space-y-6">
+                        <div class="border-b border-white/10 pb-4">
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Location</span>
+                            <p class="mt-1 font-bold">Remote / Global Distribution</p>
+                        </div>
+                        <div class="border-b border-white/10 pb-4">
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">Contact Protocol</span>
+                            <p class="mt-1 font-bold italic">sandra.arc@synapse.ai</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="nodes" class="min-h-screen py-32 px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold mb-20 tracking-widest text-center text-cyan-400 uppercase">Project Nodes</h2>
+                <div class="space-y-24">
+                    <div class="flex flex-col md:flex-row items-center gap-16">
+                        <div class="w-full md:w-1/2 aspect-video glass-card border-cyan-500/30 flex items-center justify-center">
+                            <div class="w-24 h-24 border-2 border-cyan-500 rounded-full animate-ping opacity-20"></div>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <h3 class="text-4xl font-bold mb-4">01 // Mnemonic_Stream</h3>
+                            <p class="text-gray-400 text-lg leading-relaxed">A prototype for non-invasive memory indexing. This system maps ocular movement to a personal LLM instance, allowing for instant semantic search of one's own visual history.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="concepts" class="min-h-screen py-32 px-8 bg-zinc-900/30">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-12 text-amber-500 uppercase tracking-widest">Future Concepts</h2>
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="p-8 border-l-2 border-amber-500 bg-amber-500/5">
+                        <h4 class="font-bold text-xl mb-4 text-white">Haptic Logic Layer</h4>
+                        <p class="text-gray-400">Concept for a physical wrist-worn device that vibrates with varying intensity based on the "Confidence Score" of an AI’s output.</p>
+                    </div>
+                    <div class="p-8 border-l-2 border-amber-500 bg-amber-500/5">
+                        <h4 class="font-bold text-xl mb-4 text-white">Sleep-State Ingestion</h4>
+                        <p class="text-gray-400">A conceptual interface that organizes daily data while the user is in REM sleep, preparing a "Briefing" for the next morning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <footer class="py-20 text-center border-t border-white/5 opacity-40">
+        <p class="text-[10px] tracking-[1.5em] uppercase">Designed by AI // Directed by Sandra Elzatom // 2026</p>
+    </footer>
+
 </body>
 </html>
