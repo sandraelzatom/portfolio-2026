@@ -1,4 +1,4 @@
-# love yourself
+# SYNAPSE: Neural Interface Design Portfolio
 ### Aspirational Portfolio & AI Workflow Presentation
 **Author:** [Sandra Elza Thomas]
 **Project Date:** May 8, 2026  
