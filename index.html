@@ -3,184 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Architect | Portfolio 2026</title>
+    <title>Sandra | Neural Architect Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.12.16/framer-motion.site.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --accent: #22d3ee;
-        }
-
-        body {
-            background-color: #030303;
-            color: #fafafa;
-            font-family: 'Space Grotesk', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Galaxy Background */
-        .galaxy-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at center, #111827 0%, #000000 100%);
-            background-image: 
-                url('https://www.transparenttextures.com/patterns/stardust.png'),
-                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
-        }
-
-        /* Signal Pulse Animation */
-        .signal-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            height: 1px;
-            width: 100px;
-            opacity: 0.3;
-            animation: moveSignal 4s linear infinite;
-        }
-
-        @keyframes moveSignal {
-            0% { transform: translateX(-100vw); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(100vw); opacity: 0; }
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .glass-card:hover {
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
-        }
-
-        .hero-text {
-            background: linear-gradient(to right, #fff, var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        section { min-height: 100vh; padding: 4rem 2rem; position: relative; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="galaxy-container"></div>
-    
-    <div class="signal-line" style="top: 20%; animation-delay: 0s;"></div>
-    <div class="signal-line" style="top: 50%; animation-delay: 2s;"></div>
-    <div class="signal-line" style="top: 80%; animation-delay: 4s;"></div>
+    <div class="fixed inset-0 z-[-10] bg-[#030303]">
+        <div class="signal signal-cyan" style="top: 15%; animation-delay: 0s;"></div>
+        <div class="signal signal-purple" style="top: 40%; animation-delay: 3s;"></div>
+        <div class="signal signal-emerald" style="top: 70%; animation-delay: 1.5s;"></div>
+    </div>
 
-    <nav class="fixed top-0 w-full p-6 z-50 flex justify-between items-center px-12">
-        <div class="text-xl font-bold tracking-tighter">NEURAL_ARC v1.0</div>
-        <div class="space-x-8 text-sm uppercase tracking-widest text-gray-400">
-            <a href="#vision" class="hover:text-cyan-400 transition">Vision</a>
-            <a href="#workflow" class="hover:text-cyan-400 transition">AI Workflow</a>
-            <a href="#projects" class="hover:text-cyan-400 transition">Nodes</a>
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
+        <div class="font-bold tracking-tighter text-xl">NEURAL_ARC <span class="text-cyan-400">v2.0</span></div>
+        <div class="hidden lg:flex space-x-4 uppercase font-medium">
+            <a href="#vision" class="nav-btn">Vision</a>
+            <a href="#research" class="nav-btn">Research</a>
+            <a href="#workflow" class="nav-btn">AI Workflow</a>
+            <a href="#information" class="nav-btn">Information</a>
+            <a href="#nodes" class="nav-btn">Nodes</a>
+            <a href="#concepts" class="nav-btn">Concepts</a>
         </div>
     </nav>
 
-    <section class="flex flex-col items-center justify-center text-center">
-        <div class="absolute w-64 h-64 bg-cyan-500/20 rounded-full blur-[120px]"></div>
-        <h1 class="text-7xl md:text-9xl font-bold hero-text mb-6">SYNAPSE</h1>
-        <p class="text-gray-400 text-lg tracking-[0.5em] uppercase">Neural Interface Designer</p>
-        <div class="mt-20 animate-bounce">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </div>
-    </section>
+    <main class="pt-32">
+        <section id="vision" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+            <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-6 bg-gradient-to-r from-white via-cyan-400 to-purple-500 bg-clip-text text-transparent">SYNAPSE</h1>
+            <p class="text-gray-400 text-xl tracking-[0.3em] uppercase">The Future of Neural Interface Design</p>
+        </section>
 
-    <section id="vision" class="flex items-center justify-center">
-        <div class="max-w-5xl grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-4xl font-bold mb-6 text-cyan-400 italic">// The New Frontier</h2>
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    By 2027, the keyboard will be the bottleneck. I am training to become a <span class="text-white font-bold text-xl">Neural Interface Designer</span>. 
-                    My focus is on how we map Large Language Models (LLMs) directly to human intent using non-invasive EEG and sensory feedback.
-                </p>
-            </div>
-            <div class="glass-card p-8 rounded-3xl relative">
-                <div class="absolute -top-4 -left-4 bg-cyan-500 px-3 py-1 text-xs font-bold rounded">LIVE FEED</div>
-                <div class="space-y-4">
-                    <div class="h-2 w-full bg-gray-800 rounded-full overflow-hidden">
-                        <div class="h-full bg-cyan-400 w-3/4 animate-pulse"></div>
-                    </div>
-                    <div class="h-2 w-2/3 bg-gray-800 rounded-full overflow-hidden">
-                        <div class="h-full bg-purple-500 w-1/2 animate-pulse" style="animation-delay: 0.5s"></div>
-                    </div>
-                    <p class="text-[10px] font-mono text-gray-500">SYNAPTIC LATENCY: 14ms <br> PACKET STABILITY: 99.8%</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="workflow" class="bg-white/5">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">AI Orchestration</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-10 rounded-2xl">
-                    <div class="text-cyan-400 mb-4 text-3xl font-bold">01</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Synthetic Research</h3>
-                    <p class="text-sm text-gray-400">I use Claude 3.5 to simulate "User-Thought Personas," creating thousands of interaction models before writing a single line of code.</p>
-                </div>
-                <div class="glass-card p-10 rounded-2xl border-cyan-500/50">
-                    <div class="text-cyan-400 mb-4 text-3xl font-bold">02</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Neural Prototyping</h3>
-                    <p class="text-sm text-gray-400">GPT-4o acts as my hardware translation layer, converting complex Python signal processing into high-performance C++.</p>
-                </div>
-                <div class="glass-card p-10 rounded-2xl">
-                    <div class="text-cyan-400 mb-4 text-3xl font-bold">03</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Visual Synthesis</h3>
-                    <p class="text-sm text-gray-400">Midjourney and Runway Gen-3 are integrated into my UI workflow to visualize abstract data streams for the user.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-center text-4xl font-bold mb-20 uppercase tracking-widest">Active Neural Nodes</h2>
-            
-            <div class="space-y-24">
-                <div class="flex flex-col md:flex-row gap-10 items-center">
-                    <div class="w-full md:w-1/2 h-64 bg-gradient-to-br from-cyan-900 to-black rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
-                        <div class="w-20 h-20 border-4 border-cyan-400 rounded-full animate-ping"></div>
-                    </div>
-                    <div class="w-full md:w-1/2">
-                        <h3 class="text-2xl font-bold text-cyan-400 mb-4">Project: Mnemonic Stream</h3>
-                        <p class="text-gray-400">An AI-powered digital twin that records and organizes user memory via voice and ocular cues. Built as a concept for future wearable tech.</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row-reverse gap-10 items-center">
-                    <div class="w-full md:w-1/2 h-64 bg-gradient-to-br from-purple-900 to-black rounded-2xl border border-white/10 flex items-center justify-center">
-                        <div class="grid grid-cols-3 gap-2">
-                            <div class="w-4 h-4 bg-purple-400 animate-bounce"></div>
-                            <div class="w-4 h-4 bg-purple-400 animate-bounce" style="animation-delay: 0.1s"></div>
-                            <div class="w-4 h-4 bg-purple-400 animate-bounce" style="animation-delay: 0.2s"></div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 text-right">
-                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Project: Haptic Bridge</h3>
-                        <p class="text-gray-400">A software layer that translates LLM "confidence levels" into physical haptic pulses, allowing users to *feel* if an AI is hallucinating.</p>
+        <section id="research" class="min-h-screen py-24 px-8">
+            <div class="max-w-6xl mx-auto glass-card p-12">
+                <h2 class="text-4xl font-bold mb-8 text-emerald-400 italic">// Global Market Research</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <p class="text-gray-300 leading-relaxed">My research involved analyzing the patent landscape for BCI (Brain-Computer Interface) hardware. I synthesized data from 2024-2025 trends showing a 400% increase in demand for "Applied AI Translators"—professionals who can turn raw neural signals into actionable UI.</p>
+                    <div class="border-l border-emerald-500/30 pl-8 space-y-4">
+                        <div class="text-xs text-emerald-500 font-mono">TARGET_COMPANIES</div>
+                        <ul class="text-sm space-y-2 text-gray-500">
+                            <li>> Neuralink (Neural Data Engineering)</li>
+                            <li>> Synchron (Stentrode UI Development)</li>
+                            <li>> Kernel (Neuro-Imaging AI)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="py-20 text-center border-t border-white/5">
-        <p class="text-xs tracking-widest text-gray-600">© 2026 // DESIGNED BY AI // DIRECTED BY HUMAN</p>
-    </footer>
+        <section id="workflow" class="min-h-screen py-24 px-8 bg-white/5">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-5xl font-bold mb-16">AI Orchestration Workflow</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-10 hover:scale-105 transition">
+                        <div class="text-cyan-400 text-4xl font-bold mb-4">01</div>
+                        <h3 class="text-white font-bold mb-2">Claude 3.5 Sonnet</h3>
+                        <p class="text-sm text-gray-400">Used as the Lead Frontend Architect to generate the complex "Data Signal" logic seen on this page.</p>
+                    </div>
+                    <div class="glass-card p-10 hover:scale-105 transition border-purple-500/30">
+                        <div class="text-purple-400 text-4xl font-bold mb-4">02</div>
+                        <h3 class="text-white font-bold mb-2">Gemini 1.5 Pro</h3>
+                        <p class="text-sm text-gray-400">Acted as the Research Analyst, parsing academic papers on EEG signal processing to ground the portfolio in reality.</p>
+                    </div>
+                    <div class="glass-card p-10 hover:scale-105 transition border-emerald-500/30">
+                        <div class="text-emerald-400 text-4xl font-bold mb-4">03</div>
+                        <h3 class="text-white font-bold mb-2">Midjourney v6</h3>
+                        <p class="text-sm text-gray-400">Synthesized the visual mood boards and "Cyber-Space" aesthetic used for the site’s background textures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="information" class="min-h-screen py-24 px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center text-rose-400">System Information</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-gray-500">Project Architect</span>
+                        <span class="text-white">Sandra [Your Last Name]</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-gray-500">Framework</span>
+                        <span class="text-white italic">Museum of Echoes v2.0 (Customized)</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-4">
+                        <span class="text-gray-500">Presentation Date</span>
+                        <span class="text-white">May 8, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
