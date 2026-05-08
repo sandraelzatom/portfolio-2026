@@ -3,96 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYNAPSE | Museum of Echoes</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sandra | Neural Interface Designer 2026</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #22d3ee; /* Cyan */
+            --glow: rgba(34, 211, 238, 0.3);
+        }
+
+        body {
+            background-color: #030303;
+            color: #fafafa;
+            font-family: 'Space Grotesk', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Galaxy Background Layer */
+        .galaxy-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -10;
+            background: radial-gradient(circle at center, #0a0f1d 0%, #000 100%);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+        }
+
+        /* Moving Signal Lines */
+        .signal {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            width: 150px;
+            opacity: 0.4;
+            animation: travel 6s linear infinite;
+        }
+
+        @keyframes travel {
+            0% { left: -150px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 100vw; opacity: 0; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
 
     <div class="galaxy-bg"></div>
-    <div class="nebula"></div>
-    <div class="stars"></div>
-    <div class="meteors"><span></span><span></span><span></span></div>
+    <div class="signal" style="top: 15%; animation-delay: 0s;"></div>
+    <div class="signal" style="top: 45%; animation-delay: 2s;"></div>
+    <div class="signal" style="top: 75%; animation-delay: 4s;"></div>
 
-    <nav class="glass-nav">
-        <div class="logo">MUSEUM OF ECHOES</div>
-        <div class="nav-links">
-            <a href="#vision" class="nav-btn">Vision</a>
-            <a href="#research" class="nav-btn">Research</a>
-            <a href="#workflow" class="nav-btn">AI Workflow</a>
-            <a href="#info" class="nav-btn">Information</a>
-            <a href="#architecture" class="nav-btn">Architecture</a>
-            <a href="#roadmap" class="nav-btn">Roadmap</a>
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center bg-black/20 backdrop-blur-md">
+        <div class="font-bold tracking-widest text-cyan-400">SANDRA_LOGIC // 2026</div>
+        <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest">
+            <a href="#about" class="hover:text-cyan-400">About</a>
+            <a href="#workflow" class="hover:text-cyan-400">AI Workflow</a>
+            <a href="#projects" class="hover:text-cyan-400">Projects</a>
         </div>
     </nav>
 
     <main>
-        <section id="vision">
-            <div class="chapter-label">Chapter One</div>
-            <div class="glass-card">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="visual-placeholder telegraph-bg">
-                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Telegraph" class="rounded-xl opacity-80">
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 tracking-tighter">
+                NEURAL <span class="text-cyan-400">ARCHITECT</span>
+            </h1>
+            <p class="text-gray-400 max-w-lg text-lg">Designing the bridge between human thought and artificial intelligence.</p>
+            <div class="mt-12 p-1 bg-cyan-500/20 rounded-full px-4 py-1 text-xs border border-cyan-500/50">
+                ASPIRATIONAL PORTFOLIO
+            </div>
+        </section>
+
+        <section id="about" class="min-h-screen py-20 px-8 flex justify-center items-center">
+            <div class="max-w-4xl glass-panel p-12 rounded-3xl">
+                <h2 class="text-3xl font-bold mb-6 text-cyan-400">Professional Direction</h2>
+                <p class="text-xl leading-relaxed text-gray-300">
+                    My goal is to pursue roles in <strong>Applied AI Engineering</strong>, specifically focusing on Neural Interfaces. I believe the next evolution of technology isn't on our phones, but in how we seamlessly integrate LLM reasoning into our daily cognitive workflows.
+                </p>
+            </div>
+        </section>
+
+        <section id="workflow" class="min-h-screen py-20 px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-center text-4xl font-bold mb-16">Intentional AI Workflow</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 border border-white/10 rounded-2xl hover:border-cyan-500/50 transition">
+                        <h3 class="text-xl font-bold mb-4">Research & Planning</h3>
+                        <p class="text-gray-400">Utilized Gemini 1.5 Pro to analyze job descriptions for AI Engineering roles at Anthropic and Neuralink to align portfolio skills with real-world industry demands.</p>
                     </div>
-                    <div>
-                        <h2 class="text-6xl font-bold mb-4">The Telegraph</h2>
-                        <p class="text-rose-400 font-bold mb-4 uppercase tracking-widest">1837 • Samuel Morse</p>
-                        <p class="text-gray-400 leading-relaxed">Before the telegraph, a message could travel no faster than a horse. For the first time in history, thought moved at the speed of electricity.</p>
-                        <div class="mt-8 flex gap-6">
-                            <div><span class="block text-2xl font-bold">10x</span><span class="text-xs text-gray-500">FASTER THAN POST</span></div>
-                            <div><span class="block text-2xl font-bold">650k</span><span class="text-xs text-gray-500">MILES OF WIRE</span></div>
-                        </div>
+                    <div class="p-8 border border-white/10 rounded-2xl hover:border-cyan-500/50 transition">
+                        <h3 class="text-xl font-bold mb-4">Creative Direction</h3>
+                        <p class="text-gray-400">Collaborated with Claude 3.5 to develop the "Cosmic Signal" visual identity, using the AI to iterate on Tailwind CSS animations and glassmorphism UI components.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="research">
-            <div class="chapter-label">Chapter Two</div>
-            <div class="glass-card border-purple-500/20">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h2 class="text-6xl font-bold mb-4">Radio Waves</h2>
-                        <p class="text-purple-400 font-bold mb-4 uppercase tracking-widest">1895 • Guglielmo Marconi</p>
-                        <p class="text-gray-400 leading-relaxed italic">"The more we elaborate our means of communication, the less we communicate."</p>
-                        <p class="text-gray-400 mt-4">— J.B. Priestley</p>
-                        <div class="mt-8 flex gap-6">
-                            <div><span class="block text-2xl font-bold">1B+</span><span class="text-xs text-gray-500">RADIOS BY 1950</span></div>
-                            <div><span class="block text-2xl font-bold">300m</span><span class="text-xs text-gray-500">SPEED OF SIGNAL</span></div>
-                        </div>
+        <section id="projects" class="min-h-screen py-20 px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12">Project Concepts</h2>
+                <div class="space-y-12">
+                    <div class="group border-l-2 border-cyan-500 pl-8">
+                        <h3 class="text-2xl font-bold group-hover:text-cyan-400">01 // Mnemonic Stream</h3>
+                        <p class="text-gray-400 mt-2">A conceptual interface that uses ocular-tracking to categorize real-time memories into an AI-searchable database.</p>
                     </div>
-                    <div class="visual-placeholder radio-bg">
-                         <div class="wave-animation"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="workflow">
-            <div class="chapter-label">Chapter Three</div>
-            <div class="glass-card border-cyan-500/20">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="visual-placeholder mac-bg">
-                        <div class="hello-text">Hello.</div>
-                    </div>
-                    <div>
-                        <h2 class="text-6xl font-bold mb-4">The Macintosh</h2>
-                        <p class="text-cyan-400 font-bold mb-4 uppercase tracking-widest">1984 • Apple Computer</p>
-                        <p class="text-gray-400 leading-relaxed">"Hello. I'm Macintosh. It sure is great to get out of that bag." A graphical interface turned machines into companions.</p>
-                        <div class="mt-8 flex gap-6">
-                            <div><span class="block text-2xl font-bold">128k</span><span class="text-xs text-gray-500">RAM MEMORY</span></div>
-                            <div><span class="block text-2xl font-bold">1984</span><span class="text-xs text-gray-500">YEAR OF THE LEAP</span></div>
-                        </div>
+                    <div class="group border-l-2 border-white/20 pl-8">
+                        <h3 class="text-2xl font-bold group-hover:text-cyan-400">02 // Haptic Logic</h3>
+                        <p class="text-gray-400 mt-2">Translating LLM confidence scores into tactile vibration patterns for screen-free decision making.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        THE THREAD THAT CONNECTS // 2026 // SANDRA ELZATOM
+    <footer class="p-12 text-center text-gray-600 text-xs tracking-widest border-t border-white/5">
+        &copy; 2026 // SANDRA ELZATOM // BUILT WITH HUMAN INTENT + AI PRECISION
     </footer>
 
 </body>
 </html>
-       
