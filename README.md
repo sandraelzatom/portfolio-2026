@@ -2,7 +2,7 @@
 ### Aspirational Portfolio & AI Workflow Presentation
 **Author:** [Sandra Elza Thomas]
 **Project Date:** May 8, 2026  
-**Live Site:** [PASTE YOUR GITHUB PAGES LINK HERE]
+**Live Site:**https://github.com/sandraelzatom/portfolio-2026
 
 ---
 
